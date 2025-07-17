@@ -25,7 +25,7 @@ export default function ThemeProvider({
       <button
         onClick={() => setIsDark(!isDark)}
         className={twMerge(
-          "fixed top-4 right-4  text-sm grid grid-cols-2 gap-1 items-center rounded-xl w-12 h-6 px-1 cursor-pointer",
+          "fixed top-4 right-4  text-sm grid grid-cols-2 gap-1 items-center rounded-xl w-12 h-6 px-1 cursor-pointer z-[999]",
           !isDark ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-800"
         )}
       >
