@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeProvider from "@/providers/theme-provider";
 
 export const metadata: Metadata = {
   title: "The Wedding Coordinator",
@@ -13,7 +14,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+          <div className="w-screen h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
