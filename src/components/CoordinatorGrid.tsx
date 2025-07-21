@@ -24,6 +24,7 @@ export const CoordinatorGrid = ({ coords }: { coords: CoordinatorDto[] }) => {
                 width={300}
                 height={300}
                 className="rounded-lg w-full"
+                unoptimized
               />
               <h4 className="font-semibold">{x.name}</h4>
               <p className="flex items-center gap-2">{x.location}</p>

@@ -28,7 +28,7 @@ A modern React-based frontend for booking and managing wedding coordinators. Bui
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/wedding-coordination-frontend.git
+git clone https://github.com/Babszzz/jg-frontend.git
 cd wedding-coordination-frontend
 npm install  # or yarn
 ```
@@ -38,7 +38,7 @@ npm install  # or yarn
 Create a .env file in the root:
 
 ```bash
-NEXT_PUBLIC_API_BASE_URL=https://your-api-url.com/api
+NEXT_PUBLIC_API_BASE_URL=https://jg-backend.onrender.com/api
 ```
 
 ## 🧪 Development

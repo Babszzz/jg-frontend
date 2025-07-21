@@ -23,6 +23,7 @@ const SingleCoord = () => {
                 width={300}
                 height={300}
                 className="rounded-lg w-full max-w-[600px]"
+                unoptimized
               />
             </div>
             <h3 className="font-semibold text-3xl">
