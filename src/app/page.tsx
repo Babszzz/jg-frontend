@@ -31,10 +31,11 @@ export default function Home() {
             Browse experienced professionals to make your special day stress
             free.
           </p>
-          <div className="w-full px-10">
+          <div className="w-fullpx-5 md:px-10">
             <SearchInput
               setSearchQuery={setSearchQuery}
               placeholder="Book Wedding Coordinators"
+              searchQuery={searchQuery}
             />
           </div>
         </div>

@@ -5,22 +5,26 @@ import React from "react";
 export const CoordinatorGrid = ({ coords }: { coords: CoordinatorDto[] }) => {
   return (
     <div className="flex w-full justify-center p-5">
-      <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-[800px] gap-8">
-        {coords?.map((x, i) => (
-          <div key={i} className="flex flex-col gap-2 text-sm">
-            <Image
-              src={x.photoUrl}
-              alt="coord"
-              width={300}
-              height={300}
-              className="rounded-lg w-full"
-            />
-            <h4 className="font-semibold">{x.name}</h4>
-            <p className="flex items-center gap-2">{x.location}</p>
-            <p className="flex items-center "> ₦{x.price}</p>
-          </div>
-        ))}
-      </div>
+      {coords?.length > 0 ? (
+        <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-[800px] gap-8">
+          {coords?.map((x, i) => (
+            <div key={i} className="flex flex-col gap-2 text-sm">
+              <Image
+                src={x.photoUrl}
+                alt="coord"
+                width={300}
+                height={300}
+                className="rounded-lg w-full"
+              />
+              <h4 className="font-semibold">{x.name}</h4>
+              <p className="flex items-center gap-2">{x.location}</p>
+              <p className="flex items-center "> ₦{x.price}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-2xl text-center">No Coordinators Found</p>
+      )}
     </div>
   );
 };

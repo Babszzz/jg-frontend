@@ -7,6 +7,7 @@ interface SearchInputProps {
   placeholder?: string;
   className?: string;
   disabled?: boolean;
+  searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
@@ -15,6 +16,7 @@ export const SearchInput = ({
   placeholder = "Search ...",
   disabled = false,
   setSearchQuery,
+  searchQuery,
   className,
 }: SearchInputProps) => {
   const [value, setValue] = useState("");
@@ -22,35 +24,47 @@ export const SearchInput = ({
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent form reload
     setSearchQuery(value);
+    setValue("");
   };
 
   return (
-    <form
-      onSubmit={handleSearch}
-      className={`relative flex items-center w-full ${className || ""}`}
-    >
-      <input
-        type="text"
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        disabled={disabled}
-        className="h-12 pl-10 pr-3 py-2 border outline-none focus:border-gray-200 rounded-xl focus-visible:border-gray-200 text-gray-900 appearance-none w-full bg-white"
-      />
-      <IoSearchSharp
-        size={20}
-        className="text-gray-500 absolute left-3 pointer-events-none"
-      />
-      <Button title="Search" type="submit" className="absolute right-1" />
-      {/* <button
+    <>
+      {searchQuery && (
+        <p className="text-center text-2xl mb-5"> Search: {searchQuery}</p>
+      )}
+      <form
+        onSubmit={handleSearch}
+        className={`relative flex items-center w-full ${className || ""}`}
+      >
+        <input
+          type="text"
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          disabled={disabled}
+          className="h-12 pl-10 pr-3 py-2 border outline-none border-gray-200 focus:border-gray-900 rounded-xl focus-visible:border-gray-900 text-gray-900 appearance-none w-full bg-white"
+        />
+        <IoSearchSharp
+          size={20}
+          className="text-gray-500 absolute left-3 pointer-events-none"
+        />
+        <Button
+          title={searchQuery && !value ? "Clear search" : "Search"}
+          type="submit"
+          className={`absolute right-1 ${
+            searchQuery && !value ? "bg-red-500" : ""
+          }`}
+        />
+        {/* <button
         type="submit"
         className="absolute right-1 px-3 py-1 text-sm bg-yellow-500 h-10 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600"
       >
         Search
       </button> */}
-    </form>
+      </form>
+    </>
   );
 };
 
