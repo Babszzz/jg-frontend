@@ -35,7 +35,7 @@ const SingleCoord = () => {
                 <>
                   <p className="flex items-center gap-2">{data?.bio}</p>
                   <p className="flex items-center gap-2 ">{data?.location}</p>
-                  <p className="flex items-center border p-3 rounded">
+                  <p className="flex items-center p-3 rounded bg-purple-100 dark:bg-purple-500">
                     {" "}
                     ₦{data?.price}
                   </p>
@@ -49,7 +49,7 @@ const SingleCoord = () => {
                       fullWidth
                     />
                     <Button
-                      title={`Book ${data?.name}`}
+                      title={`Book `}
                       className="bg-gray-600"
                       onClick={() => {
                         setMakeBooking(true);
