@@ -21,7 +21,7 @@ export default function ThemeProvider({
   }, [isDark]);
 
   return (
-    <main>
+    <main className="flex flex-col">
       <button
         onClick={() => setIsDark(!isDark)}
         className={twMerge(

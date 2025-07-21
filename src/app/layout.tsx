@@ -16,7 +16,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider>
-          <div className="w-screen h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+          <section className="w-full bg-white dark:bg-gray-700 dark:text-white h-20 flex items-center secondary-font justify-center text-xl font-secondary">
+            The Wedding Coord
+          </section>
+          <div className="w-screen flex-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
             {children}
           </div>
         </ThemeProvider>

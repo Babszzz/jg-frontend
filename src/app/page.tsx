@@ -1,17 +1,20 @@
 "use client";
 import { weddingImg } from "@/assets";
-import { Button, CoordinatorGrid, SearchInput } from "@/components";
+import { Button, CoordinatorGrid, Loader, SearchInput } from "@/components";
+import { useApiRequest } from "@/libs/ useApiRequest";
+import { CoordinatorDto } from "@/types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const { data, loading } = useApiRequest<{ data: CoordinatorDto[] }>({
+    url: `/coordinators?limit=4&search=${searchQuery}`,
+  });
+
   return (
     <>
-      <section className="w-full bg-white dark:bg-gray-700 dark:text-white h-20 flex items-center secondary-font justify-center text-xl font-secondary">
-        The Wedding Coord
-      </section>
       <section
         className="relative h-[60vh] w-full bg-center bg-cover bg-no-repeat"
         style={{
@@ -36,16 +39,22 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <CoordinatorGrid />
-      <div className="w-full flex justify-center mb-10">
-        <Button
-          title="See more coordinators"
-          variant="text"
-          onClick={() => {
-            router.push("coordinators");
-          }}
-        />
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <CoordinatorGrid coords={data?.data ?? []} />
+          <div className="w-full flex justify-center pb-20">
+            <Button
+              title="See more coordinators"
+              variant="text"
+              onClick={() => {
+                router.push("coordinators");
+              }}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 }

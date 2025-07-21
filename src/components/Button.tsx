@@ -44,8 +44,9 @@ export const Button = ({
       loadingColor = "gray";
       break;
     case "text":
-      variantClass = "text-blue-600 hover:text-blue-700";
-      loadingColor = "blue";
+      variantClass =
+        "text-gray-600 hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-200";
+      loadingColor = "gray";
       break;
   }
 
