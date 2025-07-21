@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import api from "./api";
 
-interface UseApiRequestOptions<T> {
+interface UseApiRequestOptions {
   url: string;
   params?: Record<string, any>;
   enabled?: boolean;
@@ -14,7 +14,7 @@ export function useApiRequest<T = any>({
   params,
   enabled = true,
   dependencies = [],
-}: UseApiRequestOptions<T>) {
+}: UseApiRequestOptions) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(enabled);
   const [error, setError] = useState<Error | null>(null);
@@ -25,8 +25,8 @@ export function useApiRequest<T = any>({
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await api.get<T>(url, { params });
-        setData(res.data);
+        const res = await api.get<{ data: T }>(url, { params });
+        setData(res.data.data);
       } catch (err: any) {
         setError(err);
       } finally {

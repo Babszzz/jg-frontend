@@ -6,3 +6,11 @@ export interface CoordinatorDto {
   photoUrl: string;
   bio: string;
 }
+
+export interface WeddingBooking {
+  coordinatorId: string;
+  name: string;
+  email: string;
+  weddingDate: string;
+  guestNumber: number;
+}

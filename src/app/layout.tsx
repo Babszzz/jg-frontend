@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeProvider from "@/providers/theme-provider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "The Wedding Coordinator",
@@ -22,6 +23,7 @@ export default function RootLayout({
           <div className="w-screen flex-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
             {children}
           </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
