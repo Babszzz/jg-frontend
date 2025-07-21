@@ -6,7 +6,8 @@ import useLogic from "./useLogic";
 import { useRouter } from "next/navigation";
 
 const SingleCoord = () => {
-  const { data, makeBooking, setMakeBooking, loading, formik } = useLogic();
+  const { data, makeBooking, setMakeBooking, loading, formik, loadingForm } =
+    useLogic();
 
   const router = useRouter();
   return (
@@ -31,7 +32,11 @@ const SingleCoord = () => {
             </h3>
             <>
               {makeBooking ? (
-                <BookingForm formik={formik} setMakeBooking={setMakeBooking} />
+                <BookingForm
+                  formik={formik}
+                  setMakeBooking={setMakeBooking}
+                  loadingForm={loadingForm}
+                />
               ) : (
                 <>
                   <p className="flex items-center gap-2">{data?.bio}</p>

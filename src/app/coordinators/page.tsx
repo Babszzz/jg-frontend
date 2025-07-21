@@ -11,7 +11,7 @@ const Coordinators = () => {
   });
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col items-center">
       <h1 className="text-4xl md:text-5xl font-bold font-secondary flex justify-center mt-5">
         Our Coordinators
       </h1>
@@ -19,7 +19,7 @@ const Coordinators = () => {
         <Loader />
       ) : (
         <>
-          <div className="w-full px-5 md:px-10 my-7">
+          <div className="w-full max-w-[800px] px-5 md:px-10 my-7">
             <SearchInput
               setSearchQuery={setSearchQuery}
               placeholder="Book Wedding Coordinators"

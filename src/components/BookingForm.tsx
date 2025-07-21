@@ -7,9 +7,11 @@ import { Button } from "./Button";
 export const BookingForm = ({
   formik,
   setMakeBooking,
+  loadingForm,
 }: {
   formik: FormikProps<WeddingBooking>;
   setMakeBooking: Dispatch<SetStateAction<boolean>>;
+  loadingForm: boolean;
 }) => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
     formik;
@@ -71,7 +73,12 @@ export const BookingForm = ({
           }}
           fullWidth
         />{" "}
-        <Button title={"Make Booking"} type="submit" fullWidth />
+        <Button
+          title={"Make Booking"}
+          type="submit"
+          fullWidth
+          loading={loadingForm}
+        />
       </div>
     </form>
   );

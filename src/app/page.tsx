@@ -31,7 +31,7 @@ export default function Home() {
             Browse experienced professionals to make your special day stress
             free.
           </p>
-          <div className="w-fullpx-5 md:px-10">
+          <div className="w-full max-w-[800px] px-5 md:px-10">
             <SearchInput
               setSearchQuery={setSearchQuery}
               placeholder="Book Wedding Coordinators"

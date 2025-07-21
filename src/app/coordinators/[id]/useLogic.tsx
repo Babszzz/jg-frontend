@@ -13,6 +13,7 @@ const useLogic = () => {
   });
 
   const [makeBooking, setMakeBooking] = useState(false);
+  const [loadingForm, setLoadingForm] = useState(false);
 
   const initialValues: WeddingBooking = {
     coordinatorId: (id as string) ?? "",
@@ -51,15 +52,18 @@ const useLogic = () => {
     initialValues,
     validationSchema,
     onSubmit: async (values) => {
+      setLoadingForm(true);
       const { success } = await createBooking(values);
 
       if (success) {
         console.log("Successful");
         router.push("/coordinators");
       }
+
+      setLoadingForm(false);
     },
   });
-  return { data, makeBooking, setMakeBooking, loading, formik };
+  return { data, makeBooking, setMakeBooking, loading, formik, loadingForm };
 };
 
 export default useLogic;
